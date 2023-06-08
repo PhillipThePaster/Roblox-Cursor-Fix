@@ -1,2 +1,1 @@
-# Roblox-Cursor-Fix
-Fixing the cursor in Roblox on Microsoft Store: When moved to the screen edges, it used to go off-screen. Our patch resolves this issue by confining the cursor within the screen boundaries. Enjoy an improved cursor experience while playing Roblox on the Microsoft Store.
+This simple patch addresses an issue with the cursor in the Microsoft Store version of Roblox. Previously, when moving the cursor too far to one edge of the screen, it would go off-screen. To rectify this, we have created a solution. The patch ensures that the cursor stays within the screen boundaries at all times, preventing it from going off the screen. With this fix in place, you can enjoy a smoother and more seamless cursor experience while playing Roblox on the Microsoft Store.
