@@ -2,7 +2,7 @@
 #include <windows.h>
 
 int center_x, center_y;
-int toggle_key = VK_RCONTROL;
+int toggle_key;
 
 void MoveCursorToCenter()
 {
@@ -23,7 +23,26 @@ int main()
     SetConsoleTitle(TEXT("Windows Roblox Cursor Fix"));
     SetConsoleTextColor(FOREGROUND_GREEN | FOREGROUND_INTENSITY);
 
-    std::cout << "Press Right CONTROL to toggle ON/OFF" << std::endl;
+    std::cout << "Press any key to set it as the toggle key" << std::endl;
+
+    while (true)
+    {
+        for (int i = 8; i <= 255; i++)
+        {
+            if (GetAsyncKeyState(i) & 0x8000)
+            {
+                toggle_key = i;
+                break;
+            }
+        }
+
+        if (toggle_key != 0)
+            break;
+    }
+
+    std::cout << "Toggle key set to code: " << toggle_key << std::endl;
+    std::cout << "Press the key with code " << toggle_key << " to toggle ON/OFF" << std::endl;
+
     RECT desktop;
     const HWND hDesktop = GetDesktopWindow();
     GetWindowRect(hDesktop, &desktop);
@@ -46,26 +65,12 @@ int main()
             if (toggle_state)
             {
                 std::cout << "Toggle ON" << std::endl;
-                if (toggle_key == 20)
-                {
-                    std::cout << "Press Right CONTROL to toggle OFF" << std::endl;
-                }
-                else
-                {
-                    std::cout << "Press the key with code " << toggle_key << " to toggle OFF" << std::endl;
-                }
+                std::cout << "Press the key with code " << toggle_key << " to toggle OFF" << std::endl;
             }
             else
             {
                 std::cout << "Toggle OFF" << std::endl;
-                if (toggle_key == 20)
-                {
-                    std::cout << "Press Right CONTROL to toggle ON" << std::endl;
-                }
-                else
-                {
-                    std::cout << "Press the key with code " << toggle_key << " to toggle ON" << std::endl;
-                }
+                std::cout << "Press the key with code " << toggle_key << " to toggle ON" << std::endl;
             }
         }
 
